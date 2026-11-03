@@ -7,8 +7,8 @@ async function globalSetup(config: FullConfig) {
     const apiContext = await request.newContext({
         baseURL: 'https://restful-booker.herokuapp.com'
     });
-    const username =process.env.uname ;
-    const password = process.env.password;
+    const username =process.env.UNAME ;
+    const password = process.env.PASSWORD;
 
 
     const response = await apiContext.post('/auth', {
