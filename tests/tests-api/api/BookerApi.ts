@@ -43,8 +43,8 @@ export class BookerApi {
             },
             data: updateDetail.BookerGet
         });
-        console.log('Status:', reqUpdate.status());
-        console.log('Response:', await reqUpdate.text());
+        console.log('Update Response Status:', reqUpdate.status());
+        console.log('Update Response:', await reqUpdate.text());
 
         expect(reqUpdate.ok()).toBeTruthy();
         console.log("Update Res:", await reqUpdate.json())
@@ -56,8 +56,8 @@ export class BookerApi {
             }
 
         });
-        console.log('Status:', response.status());
-        console.log('Response:', await response.text());
+        console.log('Delete Response Status:', response.status());
+        console.log('Delete Response:', await response.text());
 
         expect(response.ok()).toBeTruthy();
 
