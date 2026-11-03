@@ -1,0 +1,49 @@
+[
+    {
+        "originAirport": "Ninoy Aquino Intl",
+        "destinationAirport": "Changi",
+        "countryOrigin": "Manila",
+        "countryDestination": "Singapore",
+        "departureDate": "2027-06-01",
+        "returnDate": "2027-08-02",
+        "totalAdult": 3,
+        "totalInfant": 3,
+        "totalChildren": [
+            "2",
+            "1",
+            "8"
+        ],
+        "cabinClass": "Premium Economy"
+    },
+    {
+        "originAirport": "Ninoy Aquino Intl",
+        "destinationAirport": "Changi",
+        "countryOrigin": "Manila",
+        "countryDestination": "Singapore",
+        "departureDate": "2027-06-01",
+        "totalAdult": 3,
+        "totalInfant": 3,
+        "totalChildren": [
+            "1",
+            "1",
+            "2"
+        ],
+        "cabinClass": "Premium Economy"
+    },
+    {
+        "originAirport": "Hong Kong Intl",
+        "destinationAirport": "Changi",
+        "countryOrigin": "Hong Kong",
+        "countryDestination": "Singapore",
+        "departureDate": "2027-01-01",
+        "totalAdult": 3,
+        "totalInfant": 3,
+        "totalChildren": [
+            "2",
+            "1",
+            "2",
+            "2"
+        ],
+        "cabinClass": "Premium Economy"
+    }
+]
