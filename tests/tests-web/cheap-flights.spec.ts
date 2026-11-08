@@ -2,13 +2,14 @@ import { test, expect } from './fixtures'
 import { SearchPage } from './pages/SearchPage';
 import TestData from './test-data/search-flight-test-data.json'
 import {tripTypeName} from "./helper/titleHelper"
+import {FlightSearch} from "./types/testdata-types"
 test.describe('Cheapflights Web Testing', () => {
   test('Verify the header logo and sign-up for Google and Email', async ({ page,homePage }) => {
     await homePage.gotoCheapflights();
     await expect(page.locator('header .gPDR-logo-image')).toBeVisible();
     await expect(page.getByLabel('Sign in')).toBeVisible();
     await page.getByLabel('Sign in').click();
-    await expect(page.getByRole('button', { name: 'Google' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Google' })).toBeVisible({timeout:30000});
     await expect(page.getByRole('button', { name: 'Continue with email' })).toBeVisible();
   });
 
@@ -16,13 +17,12 @@ test.describe('Cheapflights Web Testing', () => {
 
 
 
-  TestData.forEach((data,index) => {
+  (TestData as FlightSearch[]).forEach((data,index) => {
   const tripTitle = tripTypeName(data.returnDate ?? "");
     test(`[test-${index+1}] Search Flight for ${tripTitle}`, async ({ page, homePage }) => {
       
-
-      console.log("Children Age : ", data.totalChildren.length)
-      const totalpassenger = (data.totalChildren.length + data.totalAdult + data.totalInfant)
+    
+      const totalpassenger = ((data.totalChildren?.length ?? 0) + data.totalAdult + (data.totalInfant ?? 0))
 
 
 
@@ -71,7 +71,7 @@ test.describe('Cheapflights Web Testing', () => {
         throw new Error('Invalid trip type');
       }
 
-      await homePage.setTotalPassengers(data.totalAdult, data.totalInfant, data.totalChildren);
+      await homePage.setTotalPassengers(data);
       await homePage.selectCabinClass(data.cabinClass).click();
 
       const newTab: SearchPage = await homePage.validateSearchOptionsButtons();

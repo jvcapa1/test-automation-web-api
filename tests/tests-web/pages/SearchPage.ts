@@ -32,7 +32,7 @@ export class SearchPage {
         const originFormateDayDate = `${dayName} ${month}/${day}`;
 
         const resultCard = this.page.getByRole('group', {name: 'Result item 1',exact: true});
-
+        console.log("Result Card Text: ",await resultCard.textContent())
         await expect(resultCard).toContainText(origin);
         await expect(resultCard).toContainText(destination);
 

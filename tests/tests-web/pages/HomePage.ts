@@ -1,5 +1,7 @@
 import { SearchPage } from "./SearchPage";
 import { Page, Locator, expect } from "@playwright/test"
+import {FlightSearch} from "../types/testdata-types"
+
 export class HomePage {
     page: Page;
     adultSection: Locator;
@@ -108,7 +110,7 @@ export class HomePage {
 
     async datePickerConstructor(rawDate: string): Promise<string> {
         const [rawmonth, rawday, rawyear] = rawDate.split('/').map(Number);
-            const date = new Date(rawyear, rawmonth - 1, rawday);
+        const date = new Date(rawyear, rawmonth - 1, rawday);
 
 
         const dayName = new Date(date).toLocaleDateString('en-US', { weekday: 'long' });
@@ -125,24 +127,31 @@ export class HomePage {
     }
 
 
-    async setTotalPassengers(totalAdult: number, totalInfant: number, totalChildren: string[]) {
+    async setTotalPassengers(data:FlightSearch) {
 
-        for (let c = 1; c < totalAdult; c++) {
-            await this.incrementAdults.click();
+        if (data.totalAdult) {
+            for (let c = 1; c < data.totalAdult; c++) {
+                await this.incrementAdults.click();
+            }
         }
-
-        for (let c = 0; c < totalInfant; c++) {
-            await this.incrementInfant.click();
+        else {
+            throw new Error('No Adult Value')
         }
-
-        for (let [count, childAge] of totalChildren.entries()) {
-            await this.incrementChildren.click();
-            const ageDropdown = this.childrenTitle.nth(count).locator('../..').getByRole('combobox');
-            await ageDropdown.click();
-            const ageOption = this.page.getByRole('option', { name: childAge, exact: true })
-            await this.page.waitForTimeout(2000);
-            await expect(ageOption).toBeVisible();
-            await ageOption.click();
+        if (data.totalInfant) {
+            for (let c = 0; c < data.totalInfant; c++) {
+                await this.incrementInfant.click();
+            }
+        }
+        if (data.totalChildren) {
+            for (let [count, childAge] of data.totalChildren.entries()) {
+                await this.incrementChildren.click();
+                const ageDropdown = this.childrenTitle.nth(count).locator('../..').getByRole('combobox');
+                await ageDropdown.click();
+                const ageOption = this.page.getByRole('option', { name: childAge, exact: true })
+                await this.page.waitForTimeout(2000);
+                await expect(ageOption).toBeVisible();
+                await ageOption.click();
+            }
         }
     }
 
