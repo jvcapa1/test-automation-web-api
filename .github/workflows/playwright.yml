@@ -12,6 +12,7 @@ jobs:
       BOOKER_TOKEN: ${{ secrets.BOOKER_TOKEN }}
       UNAME: ${{ secrets.UNAME }}
       PASSWORD: ${{ secrets.PASSWORD }}
+      PROD_CHEAPFLIGHT: ${{ secrets.PROD_CHEAPFLIGHT }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4

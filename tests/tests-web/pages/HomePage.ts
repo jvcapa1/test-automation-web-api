@@ -73,7 +73,7 @@ export class HomePage {
     }
 
     async gotoCheapflights() {
-        await this.page.goto('https://www.cheapflights.com/');
+        await this.page.goto('');
     }
 
 

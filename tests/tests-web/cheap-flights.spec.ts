@@ -3,9 +3,8 @@ import { SearchPage } from './pages/SearchPage';
 import TestData from './test-data/search-flight-test-data.json'
 import {tripTypeName} from "./helper/titleHelper"
 test.describe('Cheapflights Web Testing', () => {
-  test('Verify the header logo and sign-up for Google and Email', async ({ page }) => {
-    await page.goto('https://www.cheapflights.com/');
-
+  test('Verify the header logo and sign-up for Google and Email', async ({ page,homePage }) => {
+    await homePage.gotoCheapflights();
     await expect(page.locator('header .gPDR-logo-image')).toBeVisible();
     await expect(page.getByLabel('Sign in')).toBeVisible();
     await page.getByLabel('Sign in').click();
@@ -20,23 +19,13 @@ test.describe('Cheapflights Web Testing', () => {
   TestData.forEach((data,index) => {
   const tripTitle = tripTypeName(data.returnDate ?? "");
     test(`[test-${index+1}] Search Flight for ${tripTitle}`, async ({ page, homePage }) => {
-      // const countryOrigin = "Manila"
-      // const countryDestination = "Singapore"
-      // const originAirport = 'Ninoy Aquino Intl';
-      // const destinationAirport = 'Changi';
-      // const rawDepartureDate = new Date("2027, 6, 1");
-      // const rawReturnDate = new Date("2027, 8, 2");
-      // const totalAdult = 3;
-      // const totalInfant = 3
-      // const totalChildren = ['2', '1', '2']
-      // const cabinClass = 'Premium Economy'
+      
 
       console.log("Children Age : ", data.totalChildren.length)
       const totalpassenger = (data.totalChildren.length + data.totalAdult + data.totalInfant)
 
 
 
-      //Tue 6/1
       console.log("get total passenger:", totalpassenger)
 
 
@@ -89,7 +78,6 @@ test.describe('Cheapflights Web Testing', () => {
 
       await newTab.validateBestOfferFlightDetails(data.originAirport, data.destinationAirport, data.countryOrigin, data.countryDestination, totalpassenger, departureDate, returnDate);
 
-      //getByRole('button', { name: 'Flight origin input Manila' })
       // await newTab.validateCheapestOffer();
       // await newTab.validateQuickestOffer();
 
@@ -102,7 +90,6 @@ test.describe('Cheapflights Web Testing', () => {
 
 
 
-  //Multi-city Test Case for future implementation
 
   test('Verify Search Missing Destination Error Message', async ({ page, homePage }) => {
     await homePage.gotoCheapflights();
