@@ -70,6 +70,15 @@ export class BookerApi {
         expect(response.status()).toBe(404);
 
     }
+    async validateNullFieldHandling(payload: object) {
+        const response = await this.reqContext.post('/booking', {
+            data: payload
+        });
+
+        expect(response.status()).toBe(400);
+
+     
+    }
 
 
 

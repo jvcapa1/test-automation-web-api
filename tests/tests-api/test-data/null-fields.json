@@ -1,0 +1,94 @@
+
+[
+  {
+    "createdDetails": {
+      "firstname": null,
+      "lastname": "Co",
+      "totalprice": 50000,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2013-02-23",
+        "checkout": "2014-10-23"
+      },
+      "additionalneeds": "Breakfast"
+    }
+  },
+  {
+    "createdDetails": {
+      "firstname": "Sam",
+      "lastname": null,
+      "totalprice": 50000,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2013-02-23",
+        "checkout": "2014-10-23"
+      },
+      "additionalneeds": "Breakfast"
+    }
+  },
+  {
+    "createdDetails": {
+      "firstname": "Sam",
+      "lastname": "Cruz",
+      "totalprice": null,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2013-02-23",
+        "checkout": "2014-10-23"
+      },
+      "additionalneeds": "Breakfast"
+    }
+  },
+  {
+    "createdDetails": {
+      "firstname": "Sam",
+      "lastname": "Cruz",
+      "totalprice": 50000,
+      "depositpaid": null,
+      "bookingdates": {
+        "checkin": "2013-02-23",
+        "checkout": "2014-10-23"
+      },
+      "additionalneeds": "Breakfast"
+    }
+  },
+  {
+    "createdDetails": {
+      "firstname": "Sam",
+      "lastname": "Cruz",
+      "totalprice": 50000,
+      "depositpaid": 200,
+      "bookingdates": {
+        "checkin": null,
+        "checkout": "2014-10-23"
+      },
+      "additionalneeds": "Breakfast"
+    }
+  },
+  {
+    "createdDetails": {
+      "firstname": "Sam",
+      "lastname": "Cruz",
+      "totalprice": 50000,
+      "depositpaid": 200,
+      "bookingdates": {
+        "checkin": "2026-10-10",
+        "checkout": null
+      },
+      "additionalneeds": "Breakfast"
+    }
+  },
+  {
+    "createdDetails": {
+      "firstname": "Sam",
+      "lastname": "Cruz",
+      "totalprice": 50000,
+      "depositpaid": 200,
+      "bookingdates": {
+        "checkin": "2026-10-10",
+        "checkout": "2026-10-12"
+      },
+      "additionalneeds": null
+    }
+  }
+]
